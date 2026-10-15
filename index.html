@@ -1,0 +1,1189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>AURA | Beauty & Wellness Studio — Portfolio Demo</title>
+  <meta name="description" content="AURA is a fictional luxury beauty salon website concept designed by Nova Digital. Explore the services, gallery and elegant salon experience.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #faf7f3;
+      --white: #ffffff;
+      --ink: #302b29;
+      --muted: #746d69;
+      --rose: #d5a9a1;
+      --rose-dark: #a7746c;
+      --cream: #f0e6df;
+      --line: #e7dcd5;
+      --dark: #40312f;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(1180px, 90%);
+      margin-inline: auto;
+    }
+
+    .demo-banner {
+      padding: 9px 16px;
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,247,243,.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 83px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-family: var(--serif);
+      font-size: 33px;
+      letter-spacing: 6px;
+      font-weight: 500;
+    }
+
+    .logo span {
+      color: var(--rose-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 600;
+      transition: color .25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--rose-dark);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: transparent;
+      padding: 7px 12px;
+      border-radius: 4px;
+      font-size: 22px;
+    }
+
+    /* BUTTONS */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 13px 26px;
+      border: 1px solid var(--dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: .3s ease;
+    }
+
+    .btn-dark {
+      color: white;
+      background: var(--dark);
+    }
+
+    .btn-dark:hover {
+      background: var(--rose-dark);
+      border-color: var(--rose-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--dark);
+    }
+
+    .btn-outline:hover {
+      background: var(--dark);
+      color: white;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: 49% 51%;
+      min-height: 670px;
+      background: var(--cream);
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 85px max(6vw, 25px);
+    }
+
+    .eyebrow {
+      color: var(--rose-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(52px, 6vw, 92px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin: 22px 0 25px;
+    }
+
+    .hero h1 em {
+      color: var(--rose-dark);
+      font-weight: 400;
+    }
+
+    .hero p {
+      max-width: 470px;
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 33px;
+    }
+
+    .hero-image {
+      position: relative;
+      min-height: 600px;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      transition: transform 1s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.04);
+    }
+
+    .hero-image::after {
+      content: "BEAUTY IN EVERY DETAIL";
+      position: absolute;
+      bottom: 35px;
+      right: 30px;
+      padding: 12px 18px;
+      color: white;
+      background: rgba(48,43,41,.55);
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    /* SECTION STYLES */
+
+    section {
+      scroll-margin-top: 100px;
+    }
+
+    .section-pad {
+      padding: 105px 0;
+    }
+
+    .section-heading {
+      max-width: 690px;
+      margin: 0 auto 55px;
+      text-align: center;
+    }
+
+    .section-heading h2,
+    .about-copy h2,
+    .booking-content h2 {
+      font-family: var(--serif);
+      font-size: clamp(37px, 5vw, 60px);
+      line-height: 1.2;
+      font-weight: 400;
+      margin: 14px 0 20px;
+    }
+
+    .section-heading p,
+    .about-copy p,
+    .booking-content p {
+      color: var(--muted);
+    }
+
+    /* SERVICES */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .service-card {
+      background: white;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 35px rgba(64,49,47,.08);
+    }
+
+    .service-image {
+      height: 285px;
+      overflow: hidden;
+    }
+
+    .service-image img {
+      transition: transform .5s;
+    }
+
+    .service-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .service-info {
+      padding: 29px;
+    }
+
+    .service-number {
+      color: var(--rose-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .service-info h3 {
+      font-family: var(--serif);
+      font-size: 29px;
+      font-weight: 400;
+      margin: 10px 0;
+    }
+
+    .service-info p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      background: #f1e7e1;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 85px;
+    }
+
+    .about-image {
+      height: 550px;
+      position: relative;
+    }
+
+    .about-image::before {
+      content: "";
+      position: absolute;
+      inset: -18px 18px 18px -18px;
+      border: 1px solid var(--rose-dark);
+      pointer-events: none;
+    }
+
+    .about-copy p {
+      margin-bottom: 20px;
+    }
+
+    .about-copy .btn {
+      margin-top: 12px;
+    }
+
+    /* QUOTE SECTION */
+
+    .quote-section {
+      padding: 100px 0;
+      text-align: center;
+      background: var(--dark);
+      color: white;
+    }
+
+    .quote-section .eyebrow {
+      color: #dfbcb5;
+    }
+
+    .quote-section h2 {
+      max-width: 850px;
+      margin: 20px auto;
+      font-family: var(--serif);
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.35;
+      font-weight: 400;
+    }
+
+    /* GALLERY */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .gallery-item {
+      height: 330px;
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      transition: transform .5s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.07);
+    }
+
+    /* BOOKING DEMO */
+
+    .booking {
+      background: var(--cream);
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 75px;
+      align-items: start;
+    }
+
+    .booking-content {
+      padding-top: 35px;
+    }
+
+    .booking-content p {
+      max-width: 450px;
+    }
+
+    .booking-form {
+      background: white;
+      padding: 38px;
+      border: 1px solid var(--line);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      margin-bottom: 19px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      display: block;
+      width: 100%;
+      padding: 13px;
+      background: #fdfaf8;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 0;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--rose-dark);
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 95px;
+    }
+
+    .form-note {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .form-message {
+      margin-top: 14px;
+      color: var(--rose-dark);
+      font-size: 13px;
+      font-weight: 700;
+      min-height: 20px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #2e2524;
+      color: white;
+      padding: 65px 0 30px;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 35px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      max-width: 400px;
+    }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 38px;
+      letter-spacing: 6px;
+    }
+
+    footer p {
+      margin-top: 15px;
+      color: #d1c2bd;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .footer-links a:hover,
+    footer p a {
+      color: #e5b7ad;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.15);
+      margin-top: 55px;
+      padding-top: 24px;
+      color: #d1c2bd;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* ANIMATIONS */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* TABLET */
+
+    @media (max-width: 950px) {
+      .hero {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-content {
+        padding: 65px 6%;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        gap: 45px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .booking-grid {
+        gap: 35px;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+      .nav {
+        min-height: 72px;
+      }
+
+      .logo {
+        font-size: 28px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        padding: 25px 5%;
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content {
+        padding: 75px 6%;
+      }
+
+      .hero h1 {
+        font-size: clamp(51px, 12vw, 75px);
+      }
+
+      .hero-image {
+        min-height: 390px;
+        height: 390px;
+      }
+
+      .section-pad {
+        padding: 75px 0;
+      }
+
+      .services-grid,
+      .about-grid,
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        gap: 50px;
+      }
+
+      .about-image {
+        height: 370px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .gallery-item {
+        height: 220px;
+      }
+
+      .booking-content {
+        padding-top: 0;
+      }
+
+      .booking-form {
+        padding: 25px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item {
+        height: 260px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="demo-banner">
+    Nova Digital Portfolio Concept • Fictional Salon • No Real Bookings
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="#home" class="logo" aria-label="AURA home">
+        AURA<span>.</span>
+      </a>
+
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navLinks">
+        &#9776;
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">Our Story</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#booking">Enquire</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">
+          The Art of Self-Care
+        </span>
+
+        <h1>
+          Your Beauty.<br>
+          Your <em>Aura.</em>
+        </h1>
+
+        <p>
+          A modern beauty and wellness concept
+          where personal care, thoughtful design
+          and everyday confidence come together.
+        </p>
+
+        <a href="#services" class="btn btn-dark">
+          Explore Our Services &#8594;
+        </a>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+          alt="Elegant beauty salon interior"
+          fetchpriority="high">
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section-pad" id="services">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="eyebrow">
+            Discover Our World
+          </span>
+
+          <h2>
+            Beauty, Thoughtfully Curated
+          </h2>
+
+          <p>
+            Explore an illustrative collection
+            of beauty and wellness services
+            designed for the AURA concept.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card reveal">
+            <div class="service-image">
+              <img
+                src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=850&q=85"
+                alt="Professional hair styling inspiration"
+                loading="lazy">
+            </div>
+
+            <div class="service-info">
+              <span class="service-number">01 / HAIR</span>
+              <h3>Hair Styling</h3>
+              <p>
+                Contemporary cuts, styling
+                and personalised hair care
+                inspired by modern salon artistry.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-image">
+              <img
+                src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=850&q=85"
+                alt="Relaxing facial skincare treatment"
+                loading="lazy">
+            </div>
+
+            <div class="service-info">
+              <span class="service-number">02 / SKINCARE</span>
+              <h3>Facial Care</h3>
+              <p>
+                A calming, refreshing approach
+                to facial care and everyday
+                wellness rituals.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-image">
+              <img
+                src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=850&q=85"
+                alt="Beauty makeup brushes and products"
+                loading="lazy">
+            </div>
+
+            <div class="service-info">
+              <span class="service-number">03 / MAKEUP</span>
+              <h3>Makeup Artistry</h3>
+              <p>
+                Elegant makeup concepts for
+                special occasions, celebrations
+                and bridal inspiration.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section-pad about" id="about">
+      <div class="container about-grid">
+
+        <div class="about-image reveal">
+          <img
+            src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&w=1100&q=85"
+            alt="Modern beauty studio interior"
+            loading="lazy">
+        </div>
+
+        <div class="about-copy reveal">
+          <span class="eyebrow">
+            The AURA Philosophy
+          </span>
+
+          <h2>
+            A Little Time,
+            Just for You.
+          </h2>
+
+          <p>
+            AURA imagines a welcoming beauty
+            destination where every visit
+            feels calm, considered and personal.
+          </p>
+
+          <p>
+            Inspired by contemporary salon
+            experiences, this concept blends
+            refined interiors, gentle tones
+            and intuitive digital design.
+          </p>
+
+          <a href="#gallery" class="btn btn-outline">
+            Explore Our Gallery &#8594;
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BRAND STATEMENT -->
+    <section class="quote-section">
+      <div class="container reveal">
+        <span class="eyebrow">
+          The AURA Experience
+        </span>
+
+        <h2>
+          “Beauty is a moment to reconnect
+          with yourself.”
+        </h2>
+
+        <p>
+          AURA — Beauty & Wellness Studio Concept
+        </p>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section-pad" id="gallery">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="eyebrow">
+            A Glimpse Inside
+          </span>
+
+          <h2>
+            The Beauty Edit
+          </h2>
+
+          <p>
+            A collection of visual references
+            that express the mood and style
+            of the AURA concept.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+
+          <div class="gallery-item reveal">
+            <img
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=700&q=85"
+              alt="Beauty salon interior inspiration"
+              loading="lazy">
+          </div>
+
+          <div class="gallery-item reveal">
+            <img
+              src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=85"
+              alt="Hair styling inspiration"
+              loading="lazy">
+          </div>
+
+          <div class="gallery-item reveal">
+            <img
+              src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=700&q=85"
+              alt="Facial treatment inspiration"
+              loading="lazy">
+          </div>
+
+          <div class="gallery-item reveal">
+            <img
+              src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=700&q=85"
+              alt="Professional makeup products"
+              loading="lazy">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ENQUIRY DEMO -->
+    <section class="section-pad booking" id="booking">
+      <div class="container booking-grid">
+
+        <div class="booking-content reveal">
+          <span class="eyebrow">
+            Let's Connect
+          </span>
+
+          <h2>
+            Your Next Beauty Moment
+          </h2>
+
+          <p>
+            Preview a simple salon enquiry
+            experience. This form is a design
+            demonstration and does not send
+            information or create bookings.
+          </p>
+        </div>
+
+        <form class="booking-form reveal" id="bookingForm">
+
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Your Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your name"
+                required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="service">Interested Service</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option value="hair">Hair Styling</option>
+              <option value="facial">Facial Care</option>
+              <option value="makeup">Makeup Artistry</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Your Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Tell us what you are looking for..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-dark">
+            Preview Enquiry &#8594;
+          </button>
+
+          <p class="form-note">
+            Portfolio demo only. Your information
+            is not transmitted or stored.
+            Please use test details.
+          </p>
+
+          <p
+            id="formMessage"
+            class="form-message"
+            role="status"
+            aria-live="polite">
+          </p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">AURA.</div>
+
+          <p>
+            A fictional beauty and wellness
+            studio website concept.
+          </p>
+
+          <p>
+            Designed by
+            <a
+              href="https://nova-digital-eze.pages.dev/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Nova Digital
+            </a>
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#about">Our Story</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#booking">Enquire</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; <span id="year"></span> AURA.
+        Portfolio Demonstration Only.
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Current year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Mobile menu
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen
+          ? "Close navigation menu"
+          : "Open navigation menu"
+      );
+    });
+
+    // Close menu after clicking a link
+    document.querySelectorAll(".nav-links a")
+      .forEach(function (link) {
+        link.addEventListener("click", function () {
+          navLinks.classList.remove("open");
+
+          menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          menuToggle.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+          );
+        });
+      });
+
+    // Demo form: do not send data
+    const bookingForm =
+      document.getElementById("bookingForm");
+
+    bookingForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      document.getElementById("formMessage")
+        .textContent =
+          "Demo preview complete. No enquiry was sent or saved.";
+
+      bookingForm.reset();
+    });
+
+    // Scroll reveal
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08 }
+      );
+
+      revealElements.forEach(function (element) {
+        observer.observe(element);
+      });
+    } else {
+      revealElements.forEach(function (element) {
+        element.classList.add("visible");
+      });
+    }
+  </script>
+
+</body>
+</html>
